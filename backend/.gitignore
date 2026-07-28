@@ -1,0 +1,15 @@
+# Bỏ qua thư mục chứa thư viện (cực kỳ nặng, quăng lên là lag banh GitHub)
+node_modules/
+
+# Bỏ qua file chứa biến môi trường (Bảo vệ tuyệt đối mật khẩu Database)
+.env
+
+# Bỏ qua các file log báo lỗi hệ thống sinh ra trong quá trình chạy
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+*.log
+
+# Bỏ qua các file rác sinh ra từ hệ điều hành (Mac/Windows)
+.DS_Store
+Thumbs.db

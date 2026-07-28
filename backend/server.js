@@ -1,10 +1,11 @@
 const express = require('express');
 const mongoose = require('mongoose');
 const cors = require('cors');
+require('dotenv').config(); // Gọi thư viện để đọc file .env
 
 // Import Model
 const Doctor = require('./models/Doctor');
-// const Appointment = require('./models/Appointment'); // Nếu Khang có file model Appointment thì bỏ dấu // ở đầu dòng này nha
+// const Appointment = require('./models/Appointment');
 
 // Import Routes cũ
 const doctorRoutes = require('./routes/doctorRoutes');
@@ -21,8 +22,13 @@ const app = express();
 app.use(cors());
 app.use(express.json());
 
-// Kết nối Database
-mongoose.connect('mongodb+srv://duykhang322_db_user:231124@cluster0.d8rv5cp.mongodb.net/?appName=Cluster0').then(() => {
+// ==============================================================
+// BẢO MẬT KẾT NỐI DATABASE BẰNG BIẾN MÔI TRƯỜNG
+// ==============================================================
+// Đọc đúng tên biến MONGODB_URI từ file .env
+const mongoURI = process.env.MONGODB_URI; 
+
+mongoose.connect(mongoURI).then(() => {
     console.log('Connected to MongoDB');
 }).catch((error) => {
     console.error('Error connecting to MongoDB:', error);
@@ -30,7 +36,7 @@ mongoose.connect('mongodb+srv://duykhang322_db_user:231124@cluster0.d8rv5cp.mong
 
 
 // ==============================================================
-// ĐẶT API MỚI Ở ĐÂY ĐỂ CHẠY TRƯỚC, KHÔNG BỊ ROUTER CŨ CHẶN LẠI
+// CÁC API MỚI 
 // ==============================================================
 
 // 1. Lấy danh sách toàn bộ bác sĩ
@@ -87,7 +93,6 @@ app.put('/api/doctors/:id', async (req, res) => {
 // 6. Lưu Lịch khám mới
 app.post('/api/appointments', async (req, res) => {
     try {
-        // Tạm thời log ra để Khang thấy dữ liệu chạy xuống Backend thành công
         console.log("Đã nhận đơn đặt lịch:", req.body);
         res.status(201).json({ message: 'Đặt lịch thành công!' });
     } catch (error) {
@@ -101,15 +106,18 @@ app.post('/api/appointments', async (req, res) => {
 // ==============================================================
 app.use('/api/doctors', doctorRoutes);
 app.use('/api/appointments', appointmentRoutes);
-app.use('/api/auth', authRoutes);
+app.use('/api/auth', authRoutes); // Đã xóa dòng auth bị lặp dư
 app.use('/api/records', medicalRecordRoutes);
 app.use('/api/invoices', invoiceRoutes);
 app.use('/api/users', userRoutes);
 app.use('/api/stats', statsRoutes);
 app.use('/api/news', newsRoutes);
-app.use('/api/auth', authRoutes);
-// Khởi động Server
-const PORT = 5000;
+
+
+// ==============================================================
+// CẤU HÌNH PORT ĐỘNG CHO RENDER
+// ==============================================================
+const PORT = process.env.PORT || 5000;
 app.listen(PORT, () => {
     console.log(`Server is running on port ${PORT}`);
 });
