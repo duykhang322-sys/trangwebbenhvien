@@ -1,7 +1,7 @@
 const express = require('express');
 const router = express.Router();
 const { getDoctors, addDoctor, deleteDoctor, updateDoctor } = require('../controllers/doctorController');
-const { verifyToken, verifyRole } = require('../middleware/authMiddleware');
+const { verifyToken, verifyRole } = require('../middleware/AuthMiddleWare');
 
 router.get('/', getDoctors);
 router.post('/add', verifyToken, verifyRole(['Admin']), addDoctor);
