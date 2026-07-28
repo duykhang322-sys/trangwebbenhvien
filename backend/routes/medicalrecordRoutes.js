@@ -1,7 +1,7 @@
 const express = require('express');
 const router = express.Router();
 const { createRecord, getRecords } = require('../controllers/medicalRecordController');
-const { verifyToken, verifyRole } = require('../middleware/AuthMiddleWare');
+const { verifyToken, verifyRole } = require('../middleware/authMiddleWare');
 
 // Chỉ Admin hoặc Bác sĩ mới được quyền Tạo và Xem bệnh án
 router.post('/', verifyToken, verifyRole(['Admin', 'Doctor']), createRecord);
