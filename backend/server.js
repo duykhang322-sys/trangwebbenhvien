@@ -8,14 +8,14 @@ const Doctor = require('./models/Doctor');
 // const Appointment = require('./models/Appointment');
 
 // Import Routes cũ
-const doctorRoutes = require('./routes/doctorRoutes');
-const appointmentRoutes = require('./routes/appointmentRoutes');
-const authRoutes = require('./routes/authRoutes');
-const medicalRecordRoutes = require('./routes/medicalRecordRoutes');
-const invoiceRoutes = require('./routes/invoiceRoutes');
-const userRoutes = require('./routes/userRoutes');
-const statsRoutes = require('./routes/statsRoutes'); 
-const newsRoutes = require('./routes/newsRoutes'); 
+const doctorRoutes = require('./routes/DoctorRoutes');
+const appointmentRoutes = require('./routes/AppointmentRoutes');
+const authRoutes = require('./routes/AuthRoutes');
+const medicalRecordRoutes = require('./routes/MedicalRecordRoutes');
+const invoiceRoutes = require('./routes/InvoiceRoutes');
+const userRoutes = require('./routes/UserRoutes');
+const statsRoutes = require('./routes/StatsRoutes'); 
+const newsRoutes = require('./routes/NewsRoutes'); 
 
 const app = express();
 
@@ -104,14 +104,14 @@ app.post('/api/appointments', async (req, res) => {
 // ==============================================================
 // KHAI BÁO CÁC ROUTER CŨ Ở DƯỚI CÙNG
 // ==============================================================
-app.use('/api/doctors', doctorRoutes);
-app.use('/api/appointments', appointmentRoutes);
-app.use('/api/auth', authRoutes); // Đã xóa dòng auth bị lặp dư
-app.use('/api/records', medicalRecordRoutes);
-app.use('/api/invoices', invoiceRoutes);
-app.use('/api/users', userRoutes);
-app.use('/api/stats', statsRoutes);
-app.use('/api/news', newsRoutes);
+app.use('/api/doctors', DoctorRoutes);
+app.use('/api/appointments', AppointmentRoutes);
+app.use('/api/auth', AuthRoutes); // Đã xóa dòng auth bị lặp dư
+app.use('/api/records', MedicalRecordRoutes);
+app.use('/api/invoices', InvoiceRoutes);
+app.use('/api/users', UserRoutes);
+app.use('/api/stats', StatsRoutes);
+app.use('/api/news', NewsRoutes);
 
 
 // ==============================================================
