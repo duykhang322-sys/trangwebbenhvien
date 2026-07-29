@@ -1,6 +1,6 @@
 const express = require('express');
 const router = express.Router();
-const { createAppointment, getAppointments, deleteAppointment, updateStatus } = require('../controllers/appointmentController');
+const { createAppointment, getAppointments, deleteAppointment, updateStatus } = require('../controllers/AppointmentController');
 const { verifyToken, verifyRole } = require('../middleware/AuthMiddleWare');
 
 router.post('/book', createAppointment);
