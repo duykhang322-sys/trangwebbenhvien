@@ -9,7 +9,7 @@ const AdminNewsList = () => {
     // 1. Phải KHAI BÁO hàm trước
     const fetchNews = async () => {
         try {
-            const response = await axios.get('http://localhost:5000/api/news');
+            const response = await axios.get('https://mediconnect-backend-api.onrender.com/api/news');
             setNews(response.data);
         } catch (error) {
             console.error("Lỗi lấy danh sách cẩm nang:", error);
@@ -25,7 +25,7 @@ const AdminNewsList = () => {
         const isConfirm = window.confirm("Bạn có chắc chắn muốn xóa bài viết này không?");
         if (isConfirm) {
             try {
-                await axios.delete(`http://localhost:5000/api/news/${id}`);
+                await axios.delete(`https://mediconnect-backend-api.onrender.com/api/news/${id}`);
                 alert("Đã xóa bài viết thành công!");
                 setNews(news.filter(item => item._id !== id));
             } catch (error) {

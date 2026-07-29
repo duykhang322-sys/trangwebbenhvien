@@ -9,7 +9,7 @@ const LoginForm = () => {
     const handleSubmit = async (e) => {
         e.preventDefault();
         try {
-            const response = await axios.post('http://localhost:5000/api/auth/login', formData);
+            const response = await axios.post('https://mediconnect-backend-api.onrender.com/api/auth/login', formData);
             
             // LƯU TOKEN VÀO LOCALSTORAGE
             localStorage.setItem('token', response.data.token);

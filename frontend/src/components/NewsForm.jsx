@@ -17,7 +17,7 @@ const NewsForm = () => {
     const handleSubmit = async (e) => {
         e.preventDefault();
         try {
-            await axios.post('http://localhost:5000/api/news', formData);
+            await axios.post('https://mediconnect-backend-api.onrender.com/api/news', formData);
             alert("Đăng bài Cẩm nang thành công!");
             navigate('/admin/news'); 
         } catch (error) {

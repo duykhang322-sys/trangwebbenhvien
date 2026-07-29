@@ -15,7 +15,7 @@ const EditDoctor = () => {
     useEffect(() => {
         const fetchDoctor = async () => {
             try {
-                const res = await axios.get(`http://localhost:5000/api/doctors/${id}`);
+                const res = await axios.get(`https://mediconnect-backend-api.onrender.com/api/doctors/${id}`);
                 setFormData(res.data);
             } catch (error) {
                 console.error("Lỗi lấy thông tin:", error);
@@ -33,7 +33,7 @@ const EditDoctor = () => {
     const handleSubmit = async (e) => {
         e.preventDefault();
         try {
-            await axios.put(`http://localhost:5000/api/doctors/${id}`, formData);
+            await axios.put(`https://mediconnect-backend-api.onrender.com/api/doctors/${id}`, formData);
             alert("Cập nhật thông tin thành công!");
             navigate('/admin/doctors'); // Về lại danh sách
         } catch (error) {

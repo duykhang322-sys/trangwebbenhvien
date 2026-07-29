@@ -18,7 +18,7 @@ const PublicBookingForm = () => {
         const fetchDoctors = async () => {
             try {
                 // Lưu ý: Đảm bảo link API này khớp với Backend của ông nha
-                const response = await axios.get('http://localhost:5000/api/doctors'); 
+                const response = await axios.get('https://mediconnect-backend-api.onrender.com/api/doctors'); 
                 setDoctors(response.data);
             } catch (error) {
                 console.error("Lỗi khi tải danh sách bác sĩ:", error);
@@ -36,7 +36,7 @@ const PublicBookingForm = () => {
     const handleSubmit = async (e) => {
         e.preventDefault();
         try {
-            await axios.post('http://localhost:5000/api/appointments/book', formData);
+            await axios.post('https://mediconnect-backend-api.onrender.com/api/appointments/book', formData);
             alert("Đặt lịch thành công! KhangMedic sẽ liên hệ bạn sớm.");
             navigate('/'); // Quay về trang chủ
         } catch (error) {

@@ -10,7 +10,7 @@ const PublicDoctorList = () => {
     useEffect(() => {
         const fetchDoctors = async () => {
             try {
-                const response = await axios.get('http://localhost:5000/api/doctors');
+                const response = await axios.get('https://mediconnect-backend-api.onrender.com/api/doctors');
                 setDoctors(response.data);
             } catch (error) {
                 console.error("Lỗi khi tải dữ liệu bác sĩ:", error);

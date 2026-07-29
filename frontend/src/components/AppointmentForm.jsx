@@ -16,7 +16,7 @@ const AppointmentForm = () => {
     useEffect(() => {
         const fetchDoctors = async () => {
             try {
-                const response = await axios.get('http://localhost:5000/api/doctors');
+                const response = await axios.get('https://mediconnect-backend-api.onrender.com/api/doctors');
                 setDoctors(response.data);
             } catch (error) {
                 console.error('Lỗi lấy danh sách bác sĩ:', error);
@@ -32,7 +32,7 @@ const AppointmentForm = () => {
     const handleSubmit = async (e) => {
         e.preventDefault(); 
         try {
-            await axios.post('http://localhost:5000/api/appointments/book', formData);
+            await axios.post('https://mediconnect-backend-api.onrender.com/api/appointments/book', formData);
             alert('Đặt lịch khám thành công!');
             setFormData({
                 patientName: '', patientPhone: '', age: '', reason: '', 

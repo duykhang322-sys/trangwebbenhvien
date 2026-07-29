@@ -18,7 +18,7 @@ const DoctorForm = () => {
         e.preventDefault();
         try {
             const token = localStorage.getItem('token');
-            await axios.post('http://localhost:5000/api/doctors', formData, {
+            await axios.post('https://mediconnect-backend-api.onrender.com/api/doctors', formData, {
                 headers: { Authorization: `Bearer ${token}` }
             });
             alert("Thêm bác sĩ mới thành công!");

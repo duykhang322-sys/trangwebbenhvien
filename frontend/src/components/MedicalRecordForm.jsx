@@ -21,7 +21,7 @@ const MedicalRecordForm = () => {
     useEffect(() => {
         const fetchDoctors = async () => {
             try {
-                const response = await axios.get('http://localhost:5000/api/doctors');
+                const response = await axios.get('https://mediconnect-backend-api.onrender.com/api/doctors');
                 setDoctors(response.data);
             } catch (error) {
                 console.error("Lỗi tải danh sách bác sĩ:", error);
@@ -43,7 +43,7 @@ const MedicalRecordForm = () => {
             const token = localStorage.getItem('token'); // Lấy thẻ VIP
             
             // Bắn dữ liệu lên Backend (Nhớ check lại đường link API bên backend nha)
-            await axios.post('http://localhost:5000/api/records', formData, {
+            await axios.post('https://mediconnect-backend-api.onrender.com/api/records', formData, {
                 headers: { Authorization: `Bearer ${token}` }
             });
             

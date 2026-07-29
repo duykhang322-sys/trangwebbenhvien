@@ -16,7 +16,7 @@ const AppointmentList = () => {
             const token = localStorage.getItem('token'); 
             
             // Gửi kèm thẻ VIP qua headers
-            const response = await axios.get('http://localhost:5000/api/appointments', {
+            const response = await axios.get('https://mediconnect-backend-api.onrender.com/api/appointments', {
                 headers: { Authorization: `Bearer ${token}` }
             }); 
             setAppointments(response.data);
@@ -32,7 +32,7 @@ const AppointmentList = () => {
             const token = localStorage.getItem('token');
             console.log("🕵️‍♂️ Thẻ VIP đang cầm là:", token);  
             // Tham số thứ 3 của axios.put chính là headers chứa Token
-            await axios.put(`http://localhost:5000/api/appointments/${id}/status`, 
+            await axios.put(`https://mediconnect-backend-api.onrender.com/api/appointments/${id}/status`, 
                 { status: newStatus },
                 { headers: { Authorization: `Bearer ${token}` } }
             );

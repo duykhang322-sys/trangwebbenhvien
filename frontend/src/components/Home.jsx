@@ -10,7 +10,7 @@ const Home = () => {
     useEffect(() => {
         const fetchDoctors = async () => {
             try {
-                const response = await axios.get('http://localhost:5000/api/doctors');
+                const response = await axios.get('https://mediconnect-backend-api.onrender.com/api/doctors');
                 setFeaturedDoctors(response.data.slice(0, 4));
                 setLoading(false);
             } catch (error) {

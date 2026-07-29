@@ -5,7 +5,7 @@ const NewsList = () => {
     const [news, setNews] = useState([]);
 
     useEffect(() => {
-        axios.get('http://localhost:5000/api/news').then(res => setNews(res.data));
+        axios.get('https://mediconnect-backend-api.onrender.com/api/news').then(res => setNews(res.data));
     }, []);
 
     return (

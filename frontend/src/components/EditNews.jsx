@@ -13,7 +13,7 @@ const EditNews = () => {
     useEffect(() => {
         const fetchArticle = async () => {
             try {
-                const response = await axios.get(`http://localhost:5000/api/news/${id}`);
+                const response = await axios.get(`https://mediconnect-backend-api.onrender.com/api/news/${id}`);
                 setFormData(response.data);
             } catch (error) {
                 console.error("Lỗi lấy dữ liệu:", error);
@@ -30,7 +30,7 @@ const EditNews = () => {
     const handleSubmit = async (e) => {
         e.preventDefault();
         try {
-            await axios.put(`http://localhost:5000/api/news/${id}`, formData);
+            await axios.put(`https://mediconnect-backend-api.onrender.com/api/news/${id}`, formData);
             alert("Cập nhật bài viết thành công!");
             navigate('/admin/news');
         } catch (error) {

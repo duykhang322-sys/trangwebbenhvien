@@ -10,7 +10,7 @@ const DoctorList = () => {
     const fetchDoctors = async () => {
         try {
             const token = localStorage.getItem('token'); 
-            const response = await axios.get('http://localhost:5000/api/doctors', {
+            const response = await axios.get('https://mediconnect-backend-api.onrender.com/api/doctors', {
                 headers: { Authorization: `Bearer ${token}` }
             }); 
             setDoctors(response.data); 
@@ -29,7 +29,7 @@ const DoctorList = () => {
         if (window.confirm("Khang có chắc chắn muốn xóa bác sĩ này khỏi hệ thống không?")) {
             try {
                 const token = localStorage.getItem('token');
-                await axios.delete(`http://localhost:5000/api/doctors/${id}`, {
+                await axios.delete(`https://mediconnect-backend-api.onrender.com/api/doctors/${id}`, {
                     headers: { Authorization: `Bearer ${token}` }
                 });
                 // Xóa xong thì lọc ông đó ra khỏi màn hình ngay lập tức (không cần F5)

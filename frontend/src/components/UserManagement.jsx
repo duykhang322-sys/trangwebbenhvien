@@ -6,7 +6,7 @@ const UserManagement = () => {
 
     const fetchUsers = async () => {
         try {
-            const response = await axios.get('http://localhost:5000/api/users');
+            const response = await axios.get('https://mediconnect-backend-api.onrender.com/api/users');
             setUsers(response.data);
         } catch (error) {
             console.error('Lỗi lấy danh sách tài khoản:', error);
@@ -20,7 +20,7 @@ const UserManagement = () => {
             const token = localStorage.getItem('token'); 
             
             // 2. Kẹp thẻ Token đó vào Header gửi đi
-            const response = await axios.get('http://localhost:5000/api/users', {
+            const response = await axios.get('https://mediconnect-backend-api.onrender.com/api/users', {
                 headers: {
                     Authorization: `Bearer ${token}` 
                 }
@@ -38,7 +38,7 @@ const UserManagement = () => {
 }, []);
     const handleRoleChange = async (id, newRole) => {
         try {
-            await axios.put(`http://localhost:5000/api/users/role/${id}`, { role: newRole });
+            await axios.put(`https://mediconnect-backend-api.onrender.com/api/users/role/${id}`, { role: newRole });
             alert('Cập nhật quyền thành công!');
             fetchUsers();
         } catch (error) {

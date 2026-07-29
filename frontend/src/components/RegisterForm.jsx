@@ -9,7 +9,7 @@ const RegisterForm = () => {
     const handleSubmit = async (e) => {
         e.preventDefault();
         try {
-            await axios.post('http://localhost:5000/api/auth/register', formData);
+            await axios.post('https://mediconnect-backend-api.onrender.com/api/auth/register', formData);
             alert('Đăng ký thành công! Đăng nhập ngay nhé.');
             navigate('/login');
         } catch (error) {
