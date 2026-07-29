@@ -1,6 +1,6 @@
 const express = require('express');
 const router = express.Router();
-const { getInvoices, payInvoice } = require('../controllers/invoiceController');
+const { getInvoices, payInvoice } = require('../controllers/InvoiceController');
 const { verifyToken, verifyRole } = require('../middleware/AuthMiddleWare');
 
 router.get('/', verifyToken, getInvoices);
