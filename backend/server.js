@@ -8,14 +8,14 @@ const Doctor = require('./models/Doctor');
 // const Appointment = require('./models/Appointment');
 
 // Import Routes cũ
-const doctorRoutes = require('./routes/DoctorRoutes');
-const appointmentRoutes = require('./routes/AppointmentRoutes');
-const authRoutes = require('./routes/AuthRoutes');
-const medicalRecordRoutes = require('./routes/MedicalRecordRoutes');
-const invoiceRoutes = require('./routes/InvoiceRoutes');
-const userRoutes = require('./routes/UserRoutes');
-const statsRoutes = require('./routes/StatsRoutes'); 
-const newsRoutes = require('./routes/NewsRoutes'); 
+const DoctorRoutes = require('./routes/DoctorRoutes');
+const AppointmentRoutes = require('./routes/AppointmentRoutes');
+const AuthRoutes = require('./routes/AuthRoutes');
+const MedicalRecordRoutes = require('./routes/MedicalRecordRoutes');
+const InvoiceRoutes = require('./routes/InvoiceRoutes');
+const UserRoutes = require('./routes/UserRoutes');
+const StatsRoutes = require('./routes/StatsRoutes'); 
+const NewsRoutes = require('./routes/NewsRoutes'); 
 
 const app = express();
 
